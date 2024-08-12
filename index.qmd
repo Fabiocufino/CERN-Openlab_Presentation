@@ -1,0 +1,442 @@
+---
+title: Barrel muon track reconstruction with deep learning
+subtitle: Level-1 trigger data scouting in the CMS experiment
+format: clean-revealjs
+html-math-method:
+  method: mathjax
+  url: "https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"
+author:
+  - name: Fabio Cufino
+    affiliations: CERN Summer Student - Openlab
+date: last-modified
+institute: Supervisors Rocco Ardino, Thomas James
+---
+
+## CMS Detector  {auto-animate=true}
+
+<div style="display: flex; width: 100%; height: auto; margin: auto;">
+  <figure style="text-align: center;">
+    <img src="Images/cms.png" style="max-width: 100%; height: 100%;  margin-top: -55px;">
+    <figcaption style="color: gray; font-size: 18px; margin-top: -15px;">[CMS collaboration]</figcaption>
+  </figure>
+</div>
+
+
+## CMS Detector  {auto-animate=true}
+### Key Components
+
+
+:::: {.columns}
+
+::: {.column width="45%"}
+
+::: {.incremental}
+- **Silicon Tracker**: Detects charged particles, reconstructs trajectories
+- **Electromagnetic Calorimeter (ECAL)**: Measures energy of photons and electrons
+- **Hadronic Calorimeter (HCAL)**: Measures energy of hadrons
+- **Muon Detectors**: Captures muon tracks
+    - DTs, RPCs, CSCs, GEM
+:::
+
+:::
+
+::: {.column width="5%"}
+:::
+
+::: {.column width="50%"}
+
+<div style="height: 55px;"></div>
+
+
+<div style="display: flex; width: 120%; height: auto; margin: auto;">
+  <figure style="text-align: center;">
+    <img src="Images/cms.png" style="max-width: 100%; height: 100%;">
+    <figcaption style="color: gray; font-size: 18px; margin-top: -15px;">[CMS collaboration]</figcaption>
+  </figure>
+</div>
+
+:::
+
+
+::::
+
+## Challenges
+### High collision rate
+
+
+- Collision Rate: 40 MHz $\; \Longrightarrow \;$ 25 ns between bunch crossings
+- Select the potentially interesting events: [**Trigger**]{.fg}
+
+
+
+
+<div style="display: flex; justify-content: center; align-items: center;">
+  <video data-autoplay src="Images/collision.mp4" width="130%" height="80%"></video>
+</div>
+
+
+## CMS Trigger System
+### 2 Trigger System Stages
+
+- Purpose: Filters collision data from **40 MHz** to **1 kHz** for storage.
+  
+
+<div style="height: 40px;"></div> 
+
+<div style="display: flex; width: 60%; height: auto; margin: auto;">
+  <figure style="text-align: center;">
+    <figcaption style="color: gray; font-size: 18px; margin-top: -15px;">Schematic representation of the Phase-1 trigger system</figcaption>
+    <img src="Images/trigger_chain.png" style="max-width: 100%; height: 100%;">
+  </figure>
+</div>
+
+
+<div style="height: 80px;"></div> 
+
+:::: {.columns}
+
+::: {.column width="48%"}
+
+
+<div style="font-size: smaller;">
+1. **Level-1 Trigger (L1T)**
+   - **Hardware-based**: Custom electronics
+   - **Focus**: Fast decisions making
+   - **Data sources**: Muon and Calo
+   - **Rate reduction**: 40 MHz $\rightarrow$ **100 kHz**
+</div>
+
+:::
+
+::: {.column width="7%"}
+:::
+
+::: {.column width="45%"}
+
+<div style="font-size: smaller;">
+2. **High-Level Trigger (HLT)**
+   - **Software-based**: Processor farm
+   - **Focus**: Detailed analysis
+   - **Data sources**: All subdetectors
+   - **Final rate**: **~1 kHz**
+</div>
+
+:::
+
+
+::::
+
+
+
+
+## Challenges
+### High collision rate
+
+
+- Collision Rate: 40 MHz $\; \Longrightarrow \;$ 25 ns between bunch crossings
+- Level-1 trigger discards [∼99.75%]{.fg} of events
+- Potentially interesting data has to be discarded: *L1 scouting system*
+
+
+
+
+
+<div style="display: flex; justify-content: center; align-items: center;">
+  <video data-autoplay src="Images/collision.mp4" width="130%" height="80%"></video>
+</div>
+
+
+
+
+## Data Scouting  {auto-animate=true}
+### At Level-1 trigger
+
+**L1 Data Scouting Strategy**:
+
+- **Idea**: Use L1 trigger chain objects with reduced detail
+    at various stages of the L1 trigger chain
+- **Online processing** using **heterogeneous computing methods** (FPGAs, GPUs)
+
+<!-- <div style="margin-top: -10px;"></div>  -->
+
+
+<div style="display: flex; width: 70%; height: auto; margin: auto;">
+  <figure style="text-align: center;">
+    <img src="Images/scouting_modif.png" style="max-width: 100%; height: auto;">
+  
+  </figure>
+</div>
+
+
+## Data Scouting  {auto-animate=true}
+### At Level-1 trigger
+
+<div style="margin-top: 15px;"></div> 
+
+<div style="display: flex; width: 60%; height: auto; margin: auto;">
+  <figure style="text-align: center;">
+   <figcaption style="color: gray; font-size: 18px; margin-top: -15px;">Schematic representation of the Level-1 trigger</figcaption>
+    <img src="Images/trigger_scheme.png" style="max-width: 100%; height: auto;">
+  </figure>
+</div>
+
+<div style="margin-top: -15px;"></div> 
+
+
+**Demonstrator System set up for Run-3**:
+
+- **Data Sources**: Global Trigger (GT), Global Muon Trigger (GMT), Calorimeter Trigger, Barrel Muon Track Finder (BMTF)
+- **Hardware**: **FPGA**-based processing boards via optical links
+
+
+
+## Data Scouting {auto-animate=true}
+### TwinMux boards
+
+**Demonstrator System set up for Run-3**:
+
+- **Data Sources**: Global Trigger (GT), Global Muon Trigger (GMT), Calorimeter Trigger, Barrel Muon Track Finder (BMTF)
+- **Hardware**: **FPGA**-based processing boards via optical links
+
+<hr> 
+
+<div style="margin-top: -15px;"></div> 
+
+TwinMux boards (60)
+
+![](Images/muon_trigger.png){.absolute bottom=50 right=50 width="300" height="220"}
+
+- Objective: process trigger primitives from 
+  1. Drift Tubes
+  2. Resistive Plate Chambers (RPCs) 
+
+- Create the super-primitives (stubs)
+
+- Then processed by the BMTF for **track reconstruction** 
+
+
+
+
+
+
+## Track Reconstruction
+### L1 Method
+
+:::: {.columns}
+::: {.column width="45%"}
+The BMTF utilizes a Kalman filter algorithm for the reconstruction tasks sice 2021
+:::
+::: {.column width="55%"}
+
+<div style="margin-top: -50px;"></div> 
+
+<div style="display: flex; width: 70%; height: 400px; margin: auto;">
+  <figure style="text-align: center;">
+    <img src="Images/kalman_filter.png" style="max-width: 100%; height: auto;">
+  </figure>
+</div>
+
+:::
+:::: 
+
+<div style="margin-top: -130px;"></div> 
+
+
+
+<hr>
+
+### New Approach
+
+- Refining muon track reconstruction in the barrel at Level-1 trigger using ML algorithms for FPGA.
+
+<div style="height: 10px;"></div> 
+
+- Goal: Outperform the Level-1 trigger Kalman filter.
+
+- How: $3$ different NNs with 2, 3, 4 stubs as input (number of stubs per muon can vary)
+
+# Results
+
+
+## Results
+### 2 stubs NN
+
+- Fully connected Neural Network
+- Architecture: 
+  - Input size: $2\times 11$
+  - Hidden Layers: $32,32,16,8\;$
+  - Output Size: $3$
+
+
+![](Images/2_pt_mean.png){.absolute bottom=400 right=50 width="350" height="270"}
+
+
+
+<div style="margin-top: 20px;"></div> 
+
+
+:::: {.columns}
+
+::: {.column width="33%"}
+<div style="display: flex; width: 90%; height: auto; margin: auto;">
+<figure style="text-align: center;">
+    <figcaption style="color: gray; font-size: 18px; margin-top: -15px;">$p_T$ resolution</figcaption>
+    <img src="Images/2_pt.png" style="max-width: 100%; height: auto;">
+  </figure>
+</div>
+
+:::
+
+::: {.column width="33%"}
+
+<div style="display: flex; width: 90%; height: auto; margin: auto;">
+  <figure style="text-align: center;">
+    <figcaption style="color: gray; font-size: 18px; margin-top: -15px;">$\eta$ resolution</figcaption>
+    <img src="Images/2_eta.png" style="max-width: 100%; height: auto;">
+  </figure>
+</div>
+
+:::
+
+
+::: {.column width="33%"}
+
+<div style="display: flex; width: 90%; height: auto; margin: auto;">
+  <figure style="text-align: center;">
+    <figcaption style="color: gray; font-size: 18px; margin-top: -15px;">$\phi$ resolution</figcaption>
+    <img src="Images/2_phi.png" style="max-width: 100%; height: auto;">
+  </figure>
+</div>
+
+:::
+
+
+::::
+
+
+<!-- ------- -->
+
+
+## Results
+### 3 stubs NN
+
+- Fully connected Neural Network
+- Architecture: 
+  - Input size: $3\times 11$
+  - Hidden Layers: $64,32,32,32,8$
+  - Output Size: $3$
+
+
+![](Images/3_pt_mean.png){.absolute bottom=400 right=50 width="350" height="270"}
+
+
+
+<div style="margin-top: 20px;"></div> 
+
+
+:::: {.columns}
+
+::: {.column width="33%"}
+<div style="display: flex; width: 90%; height: auto; margin: auto;">
+  <figure style="text-align: center;">
+    <figcaption style="color: gray; font-size: 18px; margin-top: -15px;">$p_T$  resolution</figcaption>
+    <img src="Images/3_pt.png" style="max-width: 100%; height: auto;">
+  </figure>
+</div>
+
+:::
+
+::: {.column width="33%"}
+
+<div style="display: flex; width: 90%; height: auto; margin: auto;">
+  <figure style="text-align: center;">
+    <figcaption style="color: gray; font-size: 18px; margin-top: -15px;">$\eta$ resolution</figcaption>
+    <img src="Images/3_eta.png" style="max-width: 100%; height: auto;">
+  </figure>
+</div>
+
+:::
+
+
+::: {.column width="33%"}
+
+<div style="display: flex; width: 90%; height: auto; margin: auto;">
+  <figure style="text-align: center;">
+    <figcaption style="color: gray; font-size: 18px; margin-top: -15px;">$\phi$ resolution</figcaption>
+    <img src="Images/3_phi.png" style="max-width: 100%; height: auto;">
+  </figure>
+</div>
+
+:::
+
+
+::::
+
+
+<!-- --------- -->
+
+
+
+## Results
+### 4 stubs NN
+
+- Fully connected Neural Network
+- Architecture: 
+  - Input size: $4\times 11$
+  - Hidden Layers: $16, 16, 16, 8$
+  - Output Size: $3$
+
+
+
+![](Images/4_pt_mean.png){.absolute bottom=400 right=50 width="350" height="270"}
+
+
+
+<div style="margin-top: 20px;"></div> 
+
+
+:::: {.columns}
+
+::: {.column width="33%"}
+<div style="display: flex; width: 90%; height: auto; margin: auto;">
+  <figure style="text-align: center;">
+    <figcaption style="color: gray; font-size: 18px; margin-top: -15px;">$p_T$  resolution</figcaption>
+    <img src="Images/4_pt.png" style="max-width: 100%; height: auto;">
+  </figure>
+</div>
+
+:::
+
+::: {.column width="33%"}
+
+<div style="display: flex; width: 90%; height: auto; margin: auto;">
+  <figure style="text-align: center;">
+    <figcaption style="color: gray; font-size: 18px; margin-top: -15px;">$\eta$ resolution</figcaption>
+    <img src="Images/4_eta.png" style="max-width: 100%; height: auto;">
+  </figure>
+</div>
+
+:::
+
+
+::: {.column width="33%"}
+
+<div style="display: flex; width: 90%; height: auto; margin: auto;">
+  <figure style="text-align: center;">
+    <figcaption style="color: gray; font-size: 18px; margin-top: -15px;">$\phi$ resolution</figcaption>
+    <img src="Images/4_phi.png" style="max-width: 100%; height: auto;">
+  </figure>
+</div>
+
+:::
+
+
+::::
+
+
+## Conclusion
+- This study suggests that deep learning offers a viable path forward for improving the performance of the Level-1 trigger.
+
+### What's next?
+
+- 
