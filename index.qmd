@@ -268,8 +268,11 @@ The BMTF utilizes a Kalman filter algorithm for the reconstruction tasks sice 20
   - Output Size: $3$
 
 
-![](Images/2_pt_mean.png){.absolute bottom=400 right=50 width="350" height="270"}
 
+<figure>
+    <img src="Images/2_pt_mean.png" style="bottom: 400px; right: 50px; width: 350px; height: 270px; " class="absolute">
+    <figcaption class="absolute" style="bottom: 370px; right: 90px; color: gray; font-size: 18px; margin-top: -15px; ">$p_T$ resolution at different $p_T$ values</figcaption>
+</figure>
 
 
 <div style="margin-top: 20px;"></div> 
@@ -323,12 +326,15 @@ The BMTF utilizes a Kalman filter algorithm for the reconstruction tasks sice 20
 - Fully connected Neural Network
 - Architecture: 
   - Input size: $3\times 11$
-  - Hidden Layers: $64,32,32,32,8$
+  - Hidden Layers: $32, 32, 32, 8$ 
   - Output Size: $3$
 
 
-![](Images/3_pt_mean.png){.absolute bottom=400 right=50 width="350" height="270"}
 
+<figure>
+    <img src="Images/3_pt_mean.png" style="bottom: 400px; right: 50px; width: 350px; height: 270px; " class="absolute">
+    <figcaption class="absolute" style="bottom: 370px; right: 90px; color: gray; font-size: 18px; margin-top: -15px; ">$p_T$ resolution at different $p_T$ values</figcaption>
+</figure>
 
 
 <div style="margin-top: 20px;"></div> 
@@ -387,8 +393,10 @@ The BMTF utilizes a Kalman filter algorithm for the reconstruction tasks sice 20
   - Output Size: $3$
 
 
-
-![](Images/4_pt_mean.png){.absolute bottom=400 right=50 width="350" height="270"}
+<figure>
+    <img src="Images/4_pt_mean.png" style="bottom: 400px; right: 50px; width: 350px; height: 270px; " class="absolute">
+    <figcaption class="absolute" style="bottom: 370px; right: 90px; color: gray; font-size: 18px; margin-top: -15px; ">$p_T$ resolution at different $p_T$ values</figcaption>
+</figure>
 
 
 
