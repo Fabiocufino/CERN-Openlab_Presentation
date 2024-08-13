@@ -91,7 +91,7 @@ institute: Supervisors Rocco Ardino, Thomas James
 </div>
 
 
-<div style="height: 80px;"></div> 
+<div style="height: 60px;"></div> 
 
 :::: {.columns}
 
@@ -253,7 +253,7 @@ The BMTF utilizes a Kalman filter algorithm for the reconstruction tasks sice 20
 
 ### New Approach
 
-- Refining muon track reconstruction in the barrel at Level-1 trigger using ML algorithms for FPGA.
+- Refining muon track reconstruction in the barrel at Level-1 trigger using ML algorithms for FPGA
   - *low latency* requested
 
 <div style="height: 8px;"></div> 
