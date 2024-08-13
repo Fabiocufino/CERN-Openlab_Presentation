@@ -11,7 +11,7 @@
   <meta name="generator" content="quarto-1.4.554">
 
   <meta name="author" content="Fabio Cufino">
-  <meta name="dcterms.date" content="2024-08-12">
+  <meta name="dcterms.date" content="2024-08-13">
   <title>Barrel muon track reconstruction with deep learning</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -344,7 +344,7 @@ Fabio Cufino
     </div>
 </div>
 
-  <p class="date">August 12, 2024</p>
+  <p class="date">August 13, 2024</p>
 </section>
 <section id="cms-detector" class="slide level2" data-auto-animate="true">
 <h2 data-id="quarto-animate-title">CMS Detector</h2>
@@ -369,7 +369,7 @@ Fabio Cufino
 <li class="fragment"><strong>Hadronic Calorimeter (HCAL)</strong>: Measures energy of hadrons</li>
 <li class="fragment"><strong>Muon Detectors</strong>: Captures muon tracks
 <ul>
-<li class="fragment">DTs, RPCs, CSCs, GEM</li>
+<li class="fragment">DTs, RPCs, CSCs, GEMs</li>
 </ul></li>
 </ul>
 </div>
@@ -393,10 +393,12 @@ Fabio Cufino
 <section id="challenges" class="slide level2">
 <h2>Challenges</h2>
 <h3 id="high-collision-rate">High collision rate</h3>
+<div>
 <ul>
-<li>Collision Rate: 40 MHz <span class="math inline">\(\; \Longrightarrow \;\)</span> 25 ns between bunch crossings</li>
-<li>Select the potentially interesting events: <span class="fg"><strong>Trigger</strong></span></li>
+<li class="fragment">Collision Rate: 40 MHz <span class="math inline">\(\; \Longrightarrow \;\)</span> 25 ns between bunch crossings</li>
+<li class="fragment">Select the potentially interesting events: <span class="fg"><strong>Trigger</strong></span></li>
 </ul>
+</div>
 <div style="display: flex; justify-content: center; align-items: center;">
 <p><video data-autoplay="" src="Images/collision.mp4" width="130%" height="80%"></video></p>
 </div>
@@ -405,7 +407,7 @@ Fabio Cufino
 <h2>CMS Trigger System</h2>
 <h3 id="trigger-system-stages">2 Trigger System Stages</h3>
 <ul>
-<li>Purpose: Filters collision data from <strong>40 MHz</strong> to <strong>1 kHz</strong> for storage.</li>
+<li>Purpose: Filters collision data from <strong>40 MHz</strong> to <strong>~1 kHz</strong> for storage.</li>
 </ul>
 <div style="height: 40px;">
 
@@ -455,10 +457,14 @@ Schematic representation of the Phase-1 trigger system
 <h2>Challenges</h2>
 <h3 id="high-collision-rate-1">High collision rate</h3>
 <ul>
-<li>Collision Rate: 40 MHz <span class="math inline">\(\; \Longrightarrow \;\)</span> 25 ns between bunch crossings</li>
-<li>Level-1 trigger discards <span class="fg">∼99.75%</span> of events</li>
-<li>Potentially interesting data has to be discarded: <em>L1 scouting system</em></li>
+<li>Collision Rate: 40 MHz <span class="math inline">\(\; \Longrightarrow \;\)</span> Trigger</li>
 </ul>
+<div>
+<ul>
+<li class="fragment">Level-1 trigger discards <span class="fg">∼99.75%</span> of events</li>
+<li class="fragment">Potentially interesting data has to be discarded: <em>L1 scouting system</em></li>
+</ul>
+</div>
 <div style="display: flex; justify-content: center; align-items: center;">
 <p><video data-autoplay="" src="Images/collision.mp4" width="130%" height="80%"></video></p>
 </div>
@@ -490,6 +496,9 @@ Schematic representation of the Phase-1 trigger system
 Schematic representation of the Level-1 trigger
 </figcaption>
 <img src="Images/trigger_scheme.png" style="max-width: 100%; height: auto;">
+<figcaption style="color: gray; font-size: 15px; margin-top: -15px;">
+[Nicolò Lai, CERN Summer School 2023 Report]
+</figcaption>
 </figure>
 </div>
 <div style="margin-top: -15px;">
@@ -538,6 +547,9 @@ Schematic representation of the Level-1 trigger
 <div style="display: flex; width: 70%; height: 400px; margin: auto;">
 <figure style="text-align: center;">
 <img src="Images/kalman_filter.png" style="max-width: 100%; height: auto;">
+<figcaption style="color: gray; font-size: 15px; margin-top: -15px;">
+[Nicolò Lai, CERN Summer School 2023 Report]
+</figcaption>
 </figure>
 </div>
 </div>
@@ -548,9 +560,12 @@ Schematic representation of the Level-1 trigger
 <hr>
 <h3 id="new-approach">New Approach</h3>
 <ul>
-<li>Refining muon track reconstruction in the barrel at Level-1 trigger using ML algorithms for FPGA.</li>
+<li>Refining muon track reconstruction in the barrel at Level-1 trigger using ML algorithms for FPGA.
+<ul>
+<li><em>low latency</em> requested</li>
+</ul></li>
 </ul>
-<div style="height: 10px;">
+<div style="height: 8px;">
 
 </div>
 <ul>
@@ -723,13 +738,51 @@ Schematic representation of the Level-1 trigger
 </section>
 <section id="conclusion" class="slide level2">
 <h2>Conclusion</h2>
+<div style="margin-top: 220px;">
+
+</div>
+<h3 id="key-takeaways">Key Takeaways</h3>
 <ul>
-<li>This study suggests that deep learning offers a viable path forward for improving the performance of the Level-1 trigger.</li>
+<li>Deep learning is a promising approach to enhancing the performance of the Level-1 trigger.</li>
 </ul>
-<h3 id="whats-next">What’s next?</h3>
+</section></section>
+<section>
+<section id="backup" class="title-slide slide level1 center">
+<h1>Backup</h1>
+
+</section>
+<section id="yes-its-fast-but-how-fast" class="slide level2">
+<h2>Yes it’s fast, but how fast?</h2>
+<h3 id="l1-trigger">L1 trigger</h3>
 <ul>
-<li></li>
+<li>Delivering its decision <span class="fg">3.8 μs</span> after the particle collision has occurred</li>
 </ul>
+<div style="margin-top: 50px;">
+
+</div>
+<hr>
+<div style="font-size: smaller;">
+<ol type="1">
+<li><strong>Clock Cycles Required</strong>:
+<ul>
+<li>A single sample takes around <strong>20 clock cycles</strong> to be processed.</li>
+</ul></li>
+<li><strong>Operating Frequency</strong>:
+<ul>
+<li>The FPGA pre-processing logic operates at <strong>250 MHz</strong>.</li>
+<li>One clock cycle duration: <span class="math inline">\(\frac{1}{250 \text{ MHz}} = 4 \text{ ns}\)</span></li>
+</ul></li>
+<li><strong>Processing Time per Sample</strong>:
+<ul>
+<li>Total time to process one sample: <span class="math inline">\(20 \text{ cycles} \times 4 \text{ ns/cycle}  \approx 80 \text{ ns}\)</span></li>
+</ul></li>
+<li><strong>Pipeline Architecture</strong>:
+<ul>
+<li>The operation is pipelined, meaning a new sample can enter the process every <strong>4 ns</strong>.</li>
+<li>Full processing of the first sample incurs a latency of <strong>~80 ns</strong>.</li>
+</ul></li>
+</ol>
+</div>
 <div class="quarto-auto-generated-content">
 <div class="footer footer-default">
 

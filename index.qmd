@@ -35,7 +35,7 @@ institute: Supervisors Rocco Ardino, Thomas James
 - **Electromagnetic Calorimeter (ECAL)**: Measures energy of photons and electrons
 - **Hadronic Calorimeter (HCAL)**: Measures energy of hadrons
 - **Muon Detectors**: Captures muon tracks
-    - DTs, RPCs, CSCs, GEM
+    - DTs, RPCs, CSCs, GEMs
 :::
 
 :::
@@ -63,10 +63,10 @@ institute: Supervisors Rocco Ardino, Thomas James
 ## Challenges
 ### High collision rate
 
-
+::: {.incremental}
 - Collision Rate: 40 MHz $\; \Longrightarrow \;$ 25 ns between bunch crossings
 - Select the potentially interesting events: [**Trigger**]{.fg}
-
+:::
 
 
 
@@ -78,7 +78,7 @@ institute: Supervisors Rocco Ardino, Thomas James
 ## CMS Trigger System
 ### 2 Trigger System Stages
 
-- Purpose: Filters collision data from **40 MHz** to **1 kHz** for storage.
+- Purpose: Filters collision data from **40 MHz** to **~1 kHz** for storage.
   
 
 <div style="height: 40px;"></div> 
@@ -133,10 +133,12 @@ institute: Supervisors Rocco Ardino, Thomas James
 ### High collision rate
 
 
-- Collision Rate: 40 MHz $\; \Longrightarrow \;$ 25 ns between bunch crossings
+- Collision Rate: 40 MHz $\; \Longrightarrow \;$ Trigger
+
+::: {.incremental}
 - Level-1 trigger discards [∼99.75%]{.fg} of events
 - Potentially interesting data has to be discarded: *L1 scouting system*
-
+:::
 
 
 
@@ -177,8 +179,11 @@ institute: Supervisors Rocco Ardino, Thomas James
   <figure style="text-align: center;">
    <figcaption style="color: gray; font-size: 18px; margin-top: -15px;">Schematic representation of the Level-1 trigger</figcaption>
     <img src="Images/trigger_scheme.png" style="max-width: 100%; height: auto;">
+    <figcaption style="color: gray; font-size: 15px; margin-top: -15px;">[Nicolò Lai, CERN Summer School 2023 Report]</figcaption>
   </figure>
 </div>
+
+
 
 <div style="margin-top: -15px;"></div> 
 
@@ -233,6 +238,7 @@ The BMTF utilizes a Kalman filter algorithm for the reconstruction tasks sice 20
 <div style="display: flex; width: 70%; height: 400px; margin: auto;">
   <figure style="text-align: center;">
     <img src="Images/kalman_filter.png" style="max-width: 100%; height: auto;">
+    <figcaption style="color: gray; font-size: 15px; margin-top: -15px;">[Nicolò Lai, CERN Summer School 2023 Report]</figcaption>
   </figure>
 </div>
 
@@ -248,8 +254,9 @@ The BMTF utilizes a Kalman filter algorithm for the reconstruction tasks sice 20
 ### New Approach
 
 - Refining muon track reconstruction in the barrel at Level-1 trigger using ML algorithms for FPGA.
+  - *low latency* requested
 
-<div style="height: 10px;"></div> 
+<div style="height: 8px;"></div> 
 
 - Goal: Outperform the Level-1 trigger Kalman filter.
 
@@ -443,8 +450,42 @@ The BMTF utilizes a Kalman filter algorithm for the reconstruction tasks sice 20
 
 
 ## Conclusion
-- This study suggests that deep learning offers a viable path forward for improving the performance of the Level-1 trigger.
 
-### What's next?
+<div style="margin-top: 220px;"></div> 
 
-- 
+### Key Takeaways
+
+- Deep learning is a promising approach to enhancing the performance of the Level-1 trigger.
+
+
+
+
+# Backup
+
+## Yes it's fast, but how fast? 
+### L1 trigger 
+
+- Delivering its decision [3.8 μs]{.fg} after the particle collision has occurred 
+
+<div style="margin-top: 50px;"></div> 
+
+<hr> 
+
+<div style="font-size: smaller;">
+
+1. **Clock Cycles Required**:
+   - A single sample takes around **20 clock cycles** to be processed.
+
+2. **Operating Frequency**:
+   - The FPGA pre-processing logic operates at **250 MHz**.
+   - One clock cycle duration:  $\frac{1}{250 \text{ MHz}} = 4 \text{ ns}$
+
+3. **Processing Time per Sample**:
+   - Total time to process one sample: $20 \text{ cycles} \times 4 \text{ ns/cycle}  \approx 80 \text{ ns}$
+
+4. **Pipeline Architecture**:
+   - The operation is pipelined, meaning a new sample can enter the process every **4 ns**.
+   - Full processing of the first sample incurs a latency of **~80 ns**.
+</div>
+
+
