@@ -34,7 +34,7 @@ institute: Supervisors Rocco Ardino, Thomas James
 - **Silicon Tracker**: Detects charged particles, reconstructs trajectories
 - **Electromagnetic Calorimeter (ECAL)**: Measures energy of photons and electrons
 - **Hadronic Calorimeter (HCAL)**: Measures energy of hadrons
-- **Muon Detectors**: Captures muon tracks
+- **Muon Detectors**: Capture muon tracks
     - DTs, RPCs, CSCs, GEMs
 :::
 
